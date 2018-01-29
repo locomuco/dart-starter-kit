@@ -1,0 +1,46 @@
+
+<material-drawer persistent #drawer="drawer" [attr.end]="end ? '' : null">
+    <material-list *deferredContent>
+        <div group class="mat-drawer-spacer"></div>
+        <div group>
+            <material-list-item>
+                <material-icon icon="star"></material-icon>Item1
+            </material-list-item>
+            <material-list-item>
+                <material-icon icon="star"></material-icon>Item2
+            </material-list-item>
+        </div>
+
+    </material-list>
+</material-drawer>
+<material-content>
+    <header class="material-header shadow">
+        <div class="material-header-row">
+            <material-button icon class="material-drawer-button" (trigger)="drawer.toggle()">
+                <material-icon icon="menu"></material-icon>
+            </material-button>
+            <span class="material-header-title">Dart Starter Kit</span>
+            <div class="material-spacer"></div>
+            <nav class="material-navigation">
+                <!-- show only if not logged in -->
+                <div id="sign-in" *ngIf="dbService.user == null" class="horiz">
+                    <material-button raised class="blue" (trigger)="dbService.signIn()">Sign In</material-button>
+                </div>
+                <!-- show only if logged in -->
+                <div id="sign-out" *ngIf="dbService.user != null" class="horiz">
+                    <img class="icon" [src]="dbService.user?.photoURL">
+                    <material-button raised class="red" (trigger)="dbService.signOut()">Sign Out</material-button>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        Fork me <a style="color:blue" href="https://github.com/locomuco/dart-starter-kit">here</a> !!
+    </div>
+    <div class="controls">
+        <h3>Options</h3>
+        <material-toggle [(checked)]="end" label="end">
+        </material-toggle>
+    </div>
+</material-content>

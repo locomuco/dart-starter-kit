@@ -1,0 +1,29 @@
+@import 'package:angular_components/css/material/material';
+
+:host {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.controls {
+  margin: 30px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  margin: 30px;
+}
+
+a:link, a:visited, a:active, a:hover {
+  color: $mat-white;
+  text-decoration: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
